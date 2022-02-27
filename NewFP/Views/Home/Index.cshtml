@@ -5,25 +5,29 @@
 <div class="jumbotron">
     <h1>Welcome to FamilyPi!</h1>
     <p class="lead">Find recipes, ingredient substitutions, and tips and tricks for home bakers of all experience levels!</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
+<div class="col-md-4">
+    <h2>@Html.ActionLink("Calculator", "Index", "Calculator")</h2>
+    <p>
+        Conversions for cups teaspoons and tablespoons.
+    </p>
+</div>  
+</div> 
+        
+    <div class="row">
     <div class="col-md-4">
         <h2>@Html.ActionLink("Recipes", "Index", "Recipes")</h2>
-        <p>
-            All kinds of baked goods recipes for all skill levels.
-        </p>
-        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+            <p>All kinds of baked goods recipes for all skill levels.</p>
     </div>
     <div class="col-md-4">
         <h2>@Html.ActionLink("Substitutions", "Index", "Substitutions")</h2>
         <p>Ever get stuck with out an ingredient for a recipe nad no time for a trip to the store? OR Have you ever not been able to enjoy your favorite recipe because of dietary restrictions? Check out FamilyPi's list of ingredient substitutions!'</p>
-        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
-    </div>
+     </div>
     <div class="col-md-4">
         <h2>@Html.ActionLink("Tips", "Index", "Tips")</h2>
-        <p>Here are some tips and tricks to make at home baking easier and more enjoyable!</p>
-        @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+          <p>Here are some tips and tricks to make at home baking easier and more enjoyable!</p>
     </div>
-</div>
+    </div>
+    

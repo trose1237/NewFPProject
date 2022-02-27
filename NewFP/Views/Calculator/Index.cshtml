@@ -1,0 +1,42 @@
+﻿@model NewFP.Models.Calculator
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<html>
+<head>
+    Conversions
+</head>
+<body>
+    <h2>From Cups</h2>
+    <div class="row">
+        @using (Html.BeginForm("/Index", "Calculator", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="UserNumber">cups</label>
+                <input type="text" class="form-control" id="UserNumber" value="@Model.UserNumber" />
+            </div>
+
+            <div class="form-group">
+                <label for="Answer">teaspoons/tablespoons</label>
+                <input type="text" class="form-control" id="Answer" value="@Model.Answer" />
+            </div>
+            <button type="submit" class="btn btn-info" id="teaspoons" value="teaspoons" name="calculate">teaspoons</button>
+            <button type="submit" class="btn btn-warning" id="tablespoons" value="tablespoons" name="calculate">tablespoons</button>
+        }
+
+
+
+    </div>
+
+</body>
+
+
+</html>
+
+
+
+    <h2></h2>
+
