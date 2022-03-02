@@ -15,9 +15,26 @@ namespace NewFP.Controllers
         private familypiDBEntities db = new familypiDBEntities();
 
         // GET: Substitutions
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(db.Substitutions.ToList());
+            ViewBag.Name = String.IsNullOrEmpty(sortOrder) ? "Ingredient_desc" : "";
+            var substitutions = from s in db.Substitutions
+                          select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                substitutions = substitutions.Where(s => s.Ingredient.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Ingredient_desc":
+                    substitutions = substitutions.OrderByDescending(s => s.Ingredient);
+                    break;
+                default:
+                    substitutions = substitutions.OrderBy(s => s.Ingredient);
+                    break;
+            }
+
+            return View(substitutions.ToList());
         }
 
         // GET: Substitutions/Details/5
