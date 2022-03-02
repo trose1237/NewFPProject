@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using NewFP.Models;
@@ -15,10 +16,43 @@ namespace NewFP.Controllers
         private familypiDBEntities db = new familypiDBEntities();
 
         // GET: Recipes
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string searchString)
         {
-            return View(db.Recipes.ToList());
+            ViewBag.Name = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            var recipes = from r in db.Recipes 
+                          select r;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                recipes = recipes.Where(r => r.Name.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name_desc":
+                    recipes = recipes.OrderByDescending(r => r.Name);
+                    break;
+                default:
+                    recipes = recipes.OrderBy(r => r.Name);
+                    break;
+            }
+
+            return View(recipes.ToList());
         }
+
+        //[HttpGet]
+        //public async Task<ActionResult> IndexAsync(string searchString)
+        //{
+        //    ViewData["Getrecipes"] = searchString;
+
+        //    var recipes = from R in db.Recipes
+        //                  select R;
+
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        recipes = recipes.Where(s => s.Name.Contains(searchString));
+        //    }
+
+        //    return View(await recipes.ToListAsync());
+        //}
 
         // GET: Recipes/Details/5
         public ActionResult Details(int? id)
