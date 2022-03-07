@@ -28,6 +28,7 @@ namespace NewFP.Models
         public virtual DbSet<Recipe> Recipes { get; set; }
         public virtual DbSet<Substitution> Substitutions { get; set; }
         public virtual DbSet<Tip> Tips { get; set; }
+        public virtual DbSet<Ingredient> Ingredients { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

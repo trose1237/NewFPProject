@@ -11,14 +11,25 @@ namespace NewFP.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         public int UserID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
+
+        [Required(ErrorMessage = "UserName Required")]
+        public string UserName { get; set; }
+
+        [Required(ErrorMessage = "Password Required")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-        public string RePassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [DisplayName("Confirm Password")]
+        [Compare("Password")]
+        public string ConfirmPassword {get; set;}
+
+        public bool IsAdmin { get; set; }
     }
 }

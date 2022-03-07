@@ -4,11 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="14b914666fcb47178f468e7275947c8d" Name="Diagram1">
+      <Diagram DiagramId="14b914666fcb47178f468e7275947c8d" Name="Diagram1" ZoomLevel="80">
         <EntityTypeShape EntityType="familypiDBModel.Recipe" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="familypiDBModel.Substitution" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="familypiDBModel.Tip" Width="1.5" PointX="5" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="familypiDBModel.User" Width="1.5" PointX="7.625" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="familypiDBModel.Ingredient" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="familypiDBModel.User" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
